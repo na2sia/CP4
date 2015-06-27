@@ -20,7 +20,6 @@ namespace CSVFileWatcher
             if (Environment.UserInteractive)
             {
                 AllocConsole();
-                Console.CancelKeyPress += (x, y) => service.Stop();
                 service.Start();
                 Console.ReadKey();
                 service.Stop();

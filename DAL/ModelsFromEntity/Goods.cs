@@ -10,6 +10,5 @@ namespace DAL.ModelsFromEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        //public Nullable<double> Price { get; set; }
     }
 }

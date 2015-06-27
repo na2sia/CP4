@@ -15,16 +15,16 @@ namespace DAL.ModelsFromEntity
         public int ManagerId { get; set; }
         public int GoodsId { get; set; }
         
-        //public Sales() { }
+        public Sales() { }
 
-        //public Sales(DateTime date, int managerid, int clientid, int goodsid, double cost)
-        //{
-        //    this.Date = date;
-        //    this.ManagerId = managerid;
-        //    this.ClientId = clientid;
-        //    this.GoodsId = goodsid;
-        //    this.Cost = cost;
-        //}
+        public Sales(DateTime date, int managerid, int clientid, int goodsid, double cost)
+        {
+            this.Date = date;
+            this.ManagerId = managerid;
+            this.ClientId = clientid;
+            this.GoodsId = goodsid;
+            this.Cost = cost;
+        }
 
     }
 }

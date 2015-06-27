@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-//using System.ComponentModel;
 using System.Data;
-//using System.Diagnostics;
 using System.Linq;
 using System.ServiceProcess;
 using System.Text;
@@ -28,7 +26,7 @@ namespace CSVFileWatcher
 
         public void Start()
         {
-            Console.WriteLine("start");
+            Console.WriteLine("start service");
 
             try
             {
@@ -43,7 +41,7 @@ namespace CSVFileWatcher
         }
 
 
-        //Processing of an event of creation of the new file
+        //Processing event of creation of new file
         private void OnFileCreate(object sender, FileSystemEventArgs e)
         {
             Console.WriteLine("File of processing:" + e.FullPath);
@@ -52,7 +50,7 @@ namespace CSVFileWatcher
                 Task.Factory.StartNew(ProcessDataFile, e.FullPath);
             }
         }
-        //Processing of the new file
+        //Processing of new file
         private void ProcessDataFile(object parameters)
         {
             if (parameters is string)
@@ -61,7 +59,7 @@ namespace CSVFileWatcher
                 Parser parser = new Parser();
                 try
                     {
-                        parser.ParseList(fileName);
+                        parser.ParseData(fileName);
                         Console.WriteLine("File " + fileName + " is processed");
                     }
                 catch (Exception e)

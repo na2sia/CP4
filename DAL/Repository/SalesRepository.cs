@@ -10,6 +10,7 @@ namespace DAL
     public class SalesRepository:IModelRepository<ModelsFromEntity.Sales> 
     {
         private DBModel.DBModelContext context = new DBModel.DBModelContext();
+
         private  DBModel.Sales ToEntity(ModelsFromEntity.Sales source)
         {
             return new DBModel.Sales() {Id=source.Id, ManagerId = source.ManagerId, GoodsId = source.GoodsId, ClientId = source.ClientId, Date = source.Date, Cost = source.Cost }; 
@@ -23,18 +24,19 @@ namespace DAL
         {
             var itemToEntity = this.ToEntity(item);
             context.SalesSet.Add(itemToEntity);
+            SaveChanges();
         }
 
-        public void Remove(ModelsFromEntity.Sales item)
-        {
-            var itemToEntity = this.ToEntity(item);
-            context.SalesSet.Remove(itemToEntity);
-        }
+        //public void Remove(ModelsFromEntity.Sales item)
+        //{
+        //    var itemToEntity = this.ToEntity(item);
+        //    context.SalesSet.Remove(itemToEntity);
+        //}
 
-        public void Update(ModelsFromEntity.Sales item)
-        {
-            throw new NotImplementedException();
-        }
+        //public void Update(ModelsFromEntity.Sales item)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public IEnumerable<ModelsFromEntity.Sales> Items
         {

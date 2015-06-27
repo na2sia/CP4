@@ -84,7 +84,6 @@
     <Compile Include="Sales.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SalesClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">

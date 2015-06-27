@@ -25,16 +25,16 @@ namespace DAL
             context.GoodsSet.Add(itemToEntity);
         }
 
-        public void Remove(ModelsFromEntity.Goods item)
-        {
-            var itemToEntity = this.ToEntity(item);
-            context.GoodsSet.Remove(itemToEntity);
-        }
+        //public void Remove(ModelsFromEntity.Goods item)
+        //{
+        //    var itemToEntity = this.ToEntity(item);
+        //    context.GoodsSet.Remove(itemToEntity);
+        //}
 
-        public void Update(ModelsFromEntity.Goods item)
-        {
-            throw new NotImplementedException();
-        }
+        //public void Update(ModelsFromEntity.Goods item)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public IEnumerable<ModelsFromEntity.Goods> Items
         {

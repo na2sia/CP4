@@ -26,16 +26,16 @@ namespace DAL
             context.ManagerSet.Add(itemToEntity);
         }
 
-        public void Remove(ModelsFromEntity.Manager item)
-        {
-            var itemToEntity = this.ToEntity(item);
-            context.ManagerSet.Remove(itemToEntity);
-        }
+        //public void Remove(ModelsFromEntity.Manager item)
+        //{
+        //    var itemToEntity = this.ToEntity(item);
+        //    context.ManagerSet.Remove(itemToEntity);
+        //}
 
-        public void Update(ModelsFromEntity.Manager item)
-        {
-            throw new NotImplementedException();
-        }
+        //public void Update(ModelsFromEntity.Manager item)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public IEnumerable<ModelsFromEntity.Manager> Items
         {
