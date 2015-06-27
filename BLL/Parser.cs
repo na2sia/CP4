@@ -23,7 +23,7 @@ namespace BLL
             double cost;
 
             nameManager = Path.GetFileName(fileName).Split('_')[0];
-            var dateFile = DateTime.ParseExact((Path.GetFileName(fileName).Split('_')[1]).Split('.')[0], "ddMMyyyy", CultureInfo.InvariantCulture);
+            var dateFile = DateTime.ParseExact(Path.GetFileNameWithoutExtension(fileName).Split('_')[1], "ddMMyyyy", CultureInfo.InvariantCulture);
 
             
             foreach (var s in File.ReadAllLines(fileName))
@@ -41,7 +41,7 @@ namespace BLL
                 var client = clientRepository.Items.FirstOrDefault(x => x.FirstName == nameClient);
                 var goods = goodsRepository.Items.FirstOrDefault(x => x.Name == nameGoods);
 
-                if (date != dateFile) throw new InvalidDataException("Data not match");
+                if (date != dateFile) throw new InvalidDataException("Date not match");
                 
                 if ((manager != null)&& (client!= null)&& (goods!= null))
                     salesRepository.Add (new DAL.ModelsFromEntity.Sales(date,manager.Id,client.Id,goods.Id,cost));
