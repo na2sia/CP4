@@ -29,5 +29,6 @@ namespace DBModel
         public DbSet<Manager> ManagerSet { get; set; }
         public DbSet<Goods> GoodsSet { get; set; }
         public DbSet<Sales> SalesSet { get; set; }
+        public DbSet<Files> FilesSet { get; set; }
     }
 }

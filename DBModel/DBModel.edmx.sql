@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 06/23/2015 23:18:34
--- Generated from EDMX file: D:\Natasha\!!Trening ASP.NET\Projects\CheckPoint4\CheckPoint4\SalesModel\DBModel.edmx
+-- Date Created: 06/28/2015 20:24:20
+-- Generated from EDMX file: D:\Natasha\!!Trening ASP.NET\Projects\CheckPoint4\CheckPoint4\DBModel\DBModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -42,6 +42,9 @@ IF OBJECT_ID(N'[dbo].[GoodsSet]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[SalesSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SalesSet];
+GO
+IF OBJECT_ID(N'[dbo].[FilesSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[FilesSet];
 GO
 
 -- --------------------------------------------------
@@ -82,6 +85,13 @@ CREATE TABLE [dbo].[SalesSet] (
 );
 GO
 
+-- Creating table 'FilesSet'
+CREATE TABLE [dbo].[FilesSet] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [FileName] nvarchar(max)  NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -107,6 +117,12 @@ GO
 -- Creating primary key on [Id] in table 'SalesSet'
 ALTER TABLE [dbo].[SalesSet]
 ADD CONSTRAINT [PK_SalesSet]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'FilesSet'
+ALTER TABLE [dbo].[FilesSet]
+ADD CONSTRAINT [PK_FilesSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 

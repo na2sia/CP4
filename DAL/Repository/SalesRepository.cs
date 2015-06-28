@@ -48,9 +48,9 @@ namespace DAL
         {
             get 
             {
-                foreach (var u in this.context.SalesSet)
+                foreach (var i in this.context.SalesSet)
                 {
-                    yield return this.ToObject(u);
+                    yield return this.ToObject(i);
                 }
             }
         }

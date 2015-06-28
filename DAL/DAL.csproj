@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModelsFromEntity\Client.cs" />
+    <Compile Include="ModelsFromEntity\Files.cs" />
     <Compile Include="ModelsFromEntity\Goods.cs" />
     <Compile Include="ModelsFromEntity\Manager.cs" />
     <Compile Include="ModelsFromEntity\Sales.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Repository\ManagerRepository.cs" />
     <Compile Include="Repository\GoodsRepository.cs" />
     <Compile Include="Repository\ClientRepository.cs" />
+    <Compile Include="Repository\FilesRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBModel\DBModel.csproj">

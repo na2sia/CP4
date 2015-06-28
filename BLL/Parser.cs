@@ -15,8 +15,9 @@ namespace BLL
         private DAL.IModelRepository<DAL.ModelsFromEntity.Manager> managerRepository = new DAL.ManagerRepository();
         private DAL.IModelRepository<DAL.ModelsFromEntity.Goods> goodsRepository = new DAL.GoodsRepository();
         private DAL.IModelRepository<DAL.ModelsFromEntity.Client> clientRepository = new DAL.ClientRepository();
+        private DAL.IModelRepository<DAL.ModelsFromEntity.Files> filesRepository = new DAL.FilesRepository();
         
-        public void ParseData(string fileName)
+        private void ParseData(string fileName)
         {
             DateTime date;
             string nameManager, nameClient, nameGoods;
@@ -48,5 +49,15 @@ namespace BLL
                 else throw new InvalidDataException("Data not in the database");
             }
         }
+        public void ParseFileName(string fileName)
+        {
+            if (filesRepository.Items.FirstOrDefault(x => x.FileName == Path.GetFileNameWithoutExtension(fileName)) == null)
+            {
+                ParseData(fileName);
+                filesRepository.Add(new DAL.ModelsFromEntity.Files(Path.GetFileNameWithoutExtension(fileName)));
+            }
+            else throw new InvalidDataException("This file been processed");
+        }
+
     }
 }

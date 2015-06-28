@@ -40,7 +40,6 @@ namespace CSVFileWatcher
         //Processing event of creation of new file
         private void OnFileCreate(object sender, FileSystemEventArgs e)
         {
-            //Console.WriteLine("File of processing:" + e.FullPath);
             if (File.Exists(e.FullPath))
             {
                 Task.Factory.StartNew(ProcessDataFile, e.FullPath);
@@ -55,7 +54,7 @@ namespace CSVFileWatcher
             Parser parser = new Parser();
             try
             {
-                parser.ParseData(fileName);
+                parser.ParseFileName(fileName);
                 Console.WriteLine("File " + fileName + " is processed");
             }
             catch (Exception e)
