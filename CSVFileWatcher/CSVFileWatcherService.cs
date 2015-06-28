@@ -14,9 +14,7 @@ namespace CSVFileWatcher
     public partial class CSVFileWatcherService : ServiceBase
     {
         private FileSystemWatcher fileWatcher;
-        
         public string Directory { get; set; }
-       
         public string FilesMask { get; set; }
 
         public CSVFileWatcherService()
@@ -27,7 +25,6 @@ namespace CSVFileWatcher
         public void Start()
         {
             Console.WriteLine("start service");
-
             try
             {
                 this.fileWatcher = new FileSystemWatcher(Directory, FilesMask);
@@ -40,34 +37,33 @@ namespace CSVFileWatcher
             }
         }
 
-
         //Processing event of creation of new file
         private void OnFileCreate(object sender, FileSystemEventArgs e)
         {
-            Console.WriteLine("File of processing:" + e.FullPath);
+            //Console.WriteLine("File of processing:" + e.FullPath);
             if (File.Exists(e.FullPath))
             {
                 Task.Factory.StartNew(ProcessDataFile, e.FullPath);
             }
         }
+        
         //Processing of new file
         private void ProcessDataFile(object parameters)
         {
-            if (parameters is string)
+            Console.WriteLine("File of processing:" + parameters);  
+            string fileName = parameters as string;
+            Parser parser = new Parser();
+            try
             {
-                string fileName = parameters as string;
-                Parser parser = new Parser();
-                try
-                    {
-                        parser.ParseData(fileName);
-                        Console.WriteLine("File " + fileName + " is processed");
-                    }
-                catch (Exception e)
-                    {
-                        Console.WriteLine(e.Message);
-                    }
+                parser.ParseData(fileName);
+                Console.WriteLine("File " + fileName + " is processed");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
+        
         protected override void OnStart(string[] args)
         {
             this.Start();

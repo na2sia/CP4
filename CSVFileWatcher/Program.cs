@@ -29,6 +29,6 @@ namespace CSVFileWatcher
                 ServiceBase.Run(service);
             }
             
-       }
+        }
     }
 }

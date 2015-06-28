@@ -13,11 +13,17 @@ namespace DAL
 
         private  DBModel.Sales ToEntity(ModelsFromEntity.Sales source)
         {
-            return new DBModel.Sales() {Id=source.Id, ManagerId = source.ManagerId, GoodsId = source.GoodsId, ClientId = source.ClientId, Date = source.Date, Cost = source.Cost }; 
+            return new DBModel.Sales() 
+               {Id=source.Id, ManagerId = source.ManagerId, 
+                GoodsId = source.GoodsId, ClientId = source.ClientId, 
+                Date = source.Date, Cost = source.Cost }; 
         }
         private  ModelsFromEntity.Sales ToObject(DBModel.Sales source)
         {
-            return new ModelsFromEntity.Sales() { Id = source.Id, ManagerId = source.ManagerId, GoodsId = source.GoodsId, ClientId = source.ClientId, Date = source.Date, Cost = source.Cost };
+            return new ModelsFromEntity.Sales() 
+                {Id = source.Id, ManagerId = source.ManagerId, 
+                 GoodsId = source.GoodsId, ClientId = source.ClientId, 
+                 Date = source.Date, Cost = source.Cost };
         }
 
         public void Add(ModelsFromEntity.Sales item)
